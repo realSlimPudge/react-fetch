@@ -1,38 +1,114 @@
-.App {
-  text-align: center;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
+body {
+	height: 100vh;
+	background: radial-gradient(
+		circle,
+		rgba(0, 147, 233, 1) 0%,
+		rgba(68, 181, 218, 1) 50%,
+		rgba(130, 213, 204, 1) 100%
+	);
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+	background-size: 200% 200%;
+	animation: bc-move 10s infinite linear;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@keyframes bc-move {
+	0% {
+		background-position: 0% 0%;
+	}
+	25% {
+		background-position: 100% 0%;
+	}
+	50% {
+		background-position: 100% 100%;
+	}
+	75% {
+		background-position: 0% 100%;
+	}
+	100% {
+		background-position: 0% 0%;
+	}
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.card {
+	background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+	width: 300px;
+	height: 200px;
+	border-radius: 15px;
+	text-align: center;
 }
-
-.App-link {
-  color: #61dafb;
+.grid {
+	display: grid;
+	width: fit-content;
+	margin: 0 auto;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr;
+	row-gap: 20px;
+	column-gap: 20px;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 55%;
+	left: 50%;
+	height: 640px;
+	overflow: auto;
+	padding: 0px 20px;
+	opacity: 0;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.grid::-webkit-scrollbar {
+	width: 10px;
+	border-radius: 5px;
+}
+.grid::-webkit-scrollbar-thumb {
+	background-image: linear-gradient(180deg, #a1c4fd 0%, #c2e9fb 100%);
+	border-radius: 5px;
+}
+.grid::-webkit-scrollbar-track {
+	background-color: rgba(255, 255, 255, 0.3);
+	border-radius: 5px;
+}
+.getButton {
+	width: fit-content;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	left: 50%;
+	top: 50%;
+}
+.getButton button {
+	font-size: 32px;
+	border-radius: 15px;
+	padding: 20px 15px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	background: linear-gradient(
+		90deg,
+		rgba(0, 75, 119, 1) 0%,
+		rgba(68, 181, 218, 1) 50%,
+		rgba(0, 75, 119, 1) 100%
+	);
+	background-size: 200% 200%;
+	background-position: 0% 100%;
+	transition: 500ms all ease;
+	color: white;
+	font-family: 'Roboto';
+	font-weight: 300;
+}
+.getButton button:hover {
+	background-position: 100% 100%;
+	scale: 1.1;
+	box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.4);
+}
+.top {
+	transition: 300ms ease top;
+	top: 10%;
+}
+.bot {
+	transition: 300ms ease top;
+	top: 50%;
+}
+.show {
+	opacity: 1;
+	transition: 300ms opacity ease;
 }
